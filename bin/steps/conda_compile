@@ -27,3 +27,8 @@ if [ -f requirements.txt ]; then
     puts-step "Installing dependencies using Pip"
     pip install -r requirements.txt  --exists-action=w | indent
 fi
+
+if [ -f environment.yml ]; then
+    puts-step "Installing dependencies from environment.yml"
+    conda env update -f=environment.yml | indent
+fi
